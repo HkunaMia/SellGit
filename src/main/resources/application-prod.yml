@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.1.114/sell?characterEncoding=utf-8&useSSL=false
+  jackson:
+    default-property-inclusion: non_null
+  redis:
+    host: 192.168.1.114
+    port: 6379
+
+server:
+  context-path: /sell
+
+wechat:
+
+#  mpAppId: wxd898fcb01713c658
+#  mpAppSecret: 7c1c12e8d3a3df09df76758880791438
+  mpAppId: wx8e217874b116c8cb
+  mpAppSecret: 7c1c12e8d3a3df09df76758880791438
+#  借用
+  openAppId: wx6ad144e54af67d87
+  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+#测试
+
+  mchId: 1483469312
+  mchKey: C5245D70627C1F8E9964D494B0735025
+  keyPath: F:\weixin_h5\h5.p12
+  notifyUrl: http://sell962434.nat300.top/sell/pay/notify
+
+progectUrl:
+  wechatMpAuthorize: http://sell962434.nat300.top
+  wechatOpenAuthorize: http://sell962434.nat300.top
+  sell: http://sell962434.nat300.top
+logging:
+  level:
+    com.imooc.sell.dataobject.mapper: trace
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
