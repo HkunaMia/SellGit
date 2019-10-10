@@ -26,7 +26,11 @@ public class CategoryServiceIpml implements CategoryService {
 
     @Override
     public ProductCategory findOne(Integer categoryId) {
-        return productCategoryDao.findOne(categoryId);
+        /*
+        * 原：查不到会返回null
+        * 使用.get方法会抛异常
+        * */
+        return productCategoryDao.findById(categoryId).orElse(null);
     }
 
     @Override

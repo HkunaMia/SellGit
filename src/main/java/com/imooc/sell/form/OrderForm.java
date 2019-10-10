@@ -1,8 +1,10 @@
 package com.imooc.sell.form;
 
 import lombok.Data;
-import org.hibernate.validator.constraints.NotEmpty;
+
 import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
+
+import javax.validation.constraints.NotEmpty;
 
 /**
  * @program: sell

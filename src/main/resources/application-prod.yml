@@ -1,6 +1,6 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
     url: jdbc:mysql://192.168.1.114/sell?characterEncoding=utf-8&useSSL=false
@@ -11,7 +11,8 @@ spring:
     port: 6379
 
 server:
-  context-path: /sell
+  servlet:
+    context-path: /sell
 
 wechat:
 

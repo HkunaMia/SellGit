@@ -23,7 +23,7 @@ public class ProductCategoryDaoTest {
 
     @Test
     public void findOneTest() {
-        ProductCategory productCategory =productCategoryDao.findOne(1);
+        ProductCategory productCategory =productCategoryDao.findById(1).orElse(null);
         System.out.println(productCategory);
     }
 

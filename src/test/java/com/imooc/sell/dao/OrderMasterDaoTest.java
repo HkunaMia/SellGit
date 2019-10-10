@@ -37,7 +37,7 @@ public class OrderMasterDaoTest {
     }
     @Test
     public void findByBuyerOpenid() throws Exception {
-        PageRequest request = new PageRequest(0,1);
+        PageRequest request = PageRequest.of(0,1);
         Page<OrderMaster> byBuyerOpenid = dao.findByBuyerOpenid(OPENID, request);
         Assert.assertNotEquals(0,byBuyerOpenid.getTotalElements());
 //        System.out.println(byBuyerOpenid.getTotalElements());

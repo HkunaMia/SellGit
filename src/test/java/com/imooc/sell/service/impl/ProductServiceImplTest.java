@@ -36,7 +36,7 @@ public class ProductServiceImplTest {
 
     @Test
     public void findAll() throws Exception {
-        PageRequest request = new PageRequest(0,2);
+        PageRequest request = PageRequest.of(0,2);
         Page<ProductInfo> all = productService.findAll(request);
         org.junit.Assert.assertNotNull(all);
     }

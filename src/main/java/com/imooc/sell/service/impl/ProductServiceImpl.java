@@ -29,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductInfo findOne(String productId) {
-        return productInfoDao.findOne(productId);
+        return productInfoDao.findById(productId).orElse(null);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void increaseStock(List<CartDTO> cartDTOList) {
         for (CartDTO cartDTO : cartDTOList) {
-            ProductInfo productInfo = productInfoDao.findOne(cartDTO.getProductId());
+            ProductInfo productInfo = productInfoDao.findById(cartDTO.getProductId()).orElse(null);
             if(productInfo == null){
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
@@ -65,7 +65,7 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     public void decreaseStock(List<CartDTO> cartDTOList) {
         for (CartDTO cartDTO : cartDTOList) {
-            ProductInfo productInfo = productInfoDao.findOne(cartDTO.getProductId());
+            ProductInfo productInfo = productInfoDao.findById(cartDTO.getProductId()).orElse(null);
             if(productInfo == null){
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
@@ -80,7 +80,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductInfo onSale(String productId) {
-        ProductInfo productInfo = productInfoDao.findOne(productId);
+        ProductInfo productInfo = productInfoDao.findById(productId).orElse(null);
         if (productInfo == null){
             throw new  SellException(ResultEnum.PRODUCT_NOT_EXIST);
         }
@@ -94,7 +94,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductInfo offSale(String productId) {
-        ProductInfo productInfo = productInfoDao.findOne(productId);
+        ProductInfo productInfo = productInfoDao.findById(productId).orElse(null);
         if (productInfo == null){
             throw new  SellException(ResultEnum.PRODUCT_NOT_EXIST);
         }

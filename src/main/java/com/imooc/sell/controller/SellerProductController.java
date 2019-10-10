@@ -7,11 +7,9 @@ import com.imooc.sell.form.ProductForm;
 import com.imooc.sell.service.CategoryService;
 import com.imooc.sell.service.ProductService;
 import com.imooc.sell.utils.KeyUtil;
-import com.mysql.jdbc.PingTarget;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -45,7 +43,7 @@ public class SellerProductController {
     public ModelAndView list(@RequestParam(value = "page",defaultValue = "1") Integer page,
                              @RequestParam(value = "size",defaultValue = "10") Integer size,
                              Map<String,Object> map){
-        PageRequest pageRequest =  new PageRequest(page-1,size);
+        PageRequest pageRequest =  PageRequest.of(page-1,size);
         Page<ProductInfo> productServiceAll = productService.findAll(pageRequest);
         map.put("ProductInfoPage",productServiceAll);
         map.put("currentPage",page);

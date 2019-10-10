@@ -78,7 +78,7 @@ public class BuyerOrderController {
             log.error("【查询订单列表】 openID为空");
             throw new SellException(ResultEnum.PARAM_ERROR);
         }
-        PageRequest pageRequest = new PageRequest(page,size);
+        PageRequest pageRequest = PageRequest.of(page,size);
         Page<OrderDTO> orderDTOS = orderService.findList(openid, pageRequest);
         return ResultVOUtils.success(orderDTOS.getContent());
     }
